@@ -30,26 +30,6 @@ public class TreeTests {
         MockitoAnnotations.openMocks(this);
     }
 
-//    @Test
-//    public void testProcessNumbers() {
-//        List<Integer> numbers = Arrays.asList(3, 5, 11, 4, 1);
-//        Node root = new Node(3);
-//        root.setLeft(new Node(1));
-//        Node right = new Node(5);
-//        right.setLeft(new Node(4));
-//        right.setRight(new Node(11));
-//        root.setRight(right);
-//
-//        BinaryTree expectedTree = new BinaryTree(null, numbers.toString(), root);
-//
-//        when(treeRepository.save(expectedTree)).thenReturn(expectedTree);
-//
-//        BinaryTree result = treeService.processNumbers(numbers);
-//
-//        assertEquals(expectedTree.getInputNumbers(), result.getInputNumbers());
-//        assertEquals(expectedTree.getRoot().getValue(), result.getRoot().getValue());
-//    }
-
     @Test
     public void testProcessNumbers() {
         List<Integer> numbers = Arrays.asList(3, 5, 11, 4, 1);
