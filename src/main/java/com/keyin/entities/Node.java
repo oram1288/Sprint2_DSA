@@ -2,7 +2,9 @@ package com.keyin.entities;
 
 import jakarta.persistence.*;
 
+@Entity
 public class Node {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,10 +18,8 @@ public class Node {
     private Node right;
 
 
-
-
-    public Node(int item) {
-        value = item;
+    public Node(int value) {
+        this.value = value;
     }
 
     public Node() {

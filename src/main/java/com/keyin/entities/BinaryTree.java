@@ -12,17 +12,20 @@ public class BinaryTree {
     @Column(nullable = false)
     private String inputNumbers;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String treeStructure;
+//    @Column(nullable = false, columnDefinition = "TEXT")
+    @OneToOne(cascade = CascadeType.ALL)
+//    private Node treeStructure;
+    private Node root;
 
     public BinaryTree() {
 
     }
 
-    public BinaryTree(Long id, String inputNumbers, String treeStructure) {
+    public BinaryTree(Long id, String inputNumbers, Node root) {
         this.id = id;
         this.inputNumbers = inputNumbers;
-        this.treeStructure = treeStructure;
+        this.root = root;
+//        this.treeStructure = treeStructure;
     }
 
     public Long getId() {
@@ -41,11 +44,19 @@ public class BinaryTree {
         this.inputNumbers = inputNumbers;
     }
 
-    public String getTreeStructure() {
-        return treeStructure;
+    public Node getRoot() {
+        return root;
     }
 
-    public void setTreeStructure(String treeStructure) {
-        this.treeStructure = treeStructure;
+    public void setRoot(Node root) {
+        this.root = root;
     }
+
+    //    public Node getTreeStructure() {
+//        return treeStructure;
+//    }
+//
+//    public void setTreeStructure(Node treeStructure) {
+//        this.treeStructure = treeStructure;
+//    }
 }

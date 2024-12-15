@@ -14,16 +14,32 @@ public class BinaryTreeService {
     @Autowired
     private BinaryTreeRepository treeRepository;
 
+//    private List<BinaryTree> treeList = new ArrayList<>();
+
     public BinaryTree processNumbers(List<Integer> numbers) {
         Node root = null;
         for (int num : numbers) {
             root = insertNode(root, num);
         }
-        String treeStructure = serializeTree(root);
 
-        BinaryTree tree = new BinaryTree(null, numbers.toString(), treeStructure);
+        BinaryTree tree = new BinaryTree(null, numbers.toString(), root);
         return treeRepository.save(tree);
     }
+
+//    public BinaryTree processNumbers(List<Integer> numbers) {
+//        Node root = null;
+//        for (int num : numbers) {
+//            root = insertNode(root, num);
+//        }
+//
+//        BinaryTree tree = new BinaryTree(null, numbers.toString(), root);
+//        treeList.add(tree);
+//        return tree;
+//    }
+
+//    public List<BinaryTree> getAllTrees() {
+//        return treeList;
+//    }
 
     public List<BinaryTree> getAllTrees() {
         return treeRepository.findAll();
@@ -36,9 +52,9 @@ public class BinaryTreeService {
         return root;
     }
 
-    private String serializeTree(Node root) {
-        if (root == null) return "null";
-        return root.getValue() + "," + serializeTree(root.getLeft()) + "," + serializeTree(root.getRight());
-    }
+//    private String serializeTree(Node root) {
+//        if (root == null) return "null";
+//        return root.getValue() + "," + serializeTree(root.getLeft()) + "," + serializeTree(root.getRight());
+//    }
 
 }
